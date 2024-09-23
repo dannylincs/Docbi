@@ -5,17 +5,22 @@ async function main() {
   const Doc = await hre.ethers.getContractFactory("Doc");
 
   // Deploy the contract
+  console.log("Deploying the Doc contract...");
   const doc = await Doc.deploy();
 
-  // Wait for the deployment to complete
-  await doc.deployed();
+  // Check the doc object
+      //console.log("Deployed doc object:", doc);
 
-  // Log the deployed contract address
-  console.log("Doc contract deployed to:", doc.address);
+  // Wait for the deployment to complete
+
+  //await doc.deployed();
+
+  console.log("Doc contract deployed to:", doc.target);
 }
 
 // Catch any errors
-main().catch((error) => {
-  console.error(error);
-  process.exitCode = 1;
-});
+main()
+  .catch((error) => {
+    console.error(error);
+    process.exitCode = 1;
+  });
